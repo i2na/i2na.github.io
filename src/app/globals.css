@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@import "highlight.js/styles/github.css";
+@import "../styles/markdown.scss";
+
+/* CSS 변수 - 색상 테마 */
+:root {
+  --color-bg: #fafaf9;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #737373;
+  --color-border: #e5e5e5;
+  --color-accent: #0369a1;
+  --color-prompt: #0369a1;
+
+  /* Spacing (rem 기반) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+/* 모바일 */
+@media (max-width: 640px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+/* 태블릿 */
+@media (min-width: 641px) and (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* 데스크톱 */
+@media (min-width: 1025px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas,
+    "Courier New", monospace;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .markdown-content {
+    h1 {
+      font-size: 1.5rem;
+    }
+    h2 {
+      font-size: 1.25rem;
+    }
+    h3 {
+      font-size: 1.125rem;
+    }
+    h4 {
+      font-size: 1rem;
+    }
+
+    pre {
+      padding: 1rem;
+
+      code {
+        font-size: 0.8125rem;
+      }
+    }
+  }
+}
