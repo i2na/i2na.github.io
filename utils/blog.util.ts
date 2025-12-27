@@ -1,5 +1,10 @@
 import matter from "gray-matter";
-import crypto from "crypto";
+import { Buffer } from "buffer";
+
+// 브라우저에서 Buffer를 전역으로 사용할 수 있도록 설정
+if (typeof window !== "undefined" && !window.Buffer) {
+    (window as any).Buffer = Buffer;
+}
 
 export interface BlogPost {
     slug: string;
@@ -23,9 +28,14 @@ export interface BlogPostMetadata {
  * 파일명을 해시하여 항상 동일한 짧은 문자열 생성
  * @example "01_tandem_id_system.md" → "a3f5k2"
  */
-export function generateSlugFromFileName(fileName: string): string {
-    const hash = crypto.createHash("sha256").update(fileName).digest("hex");
-    return hash.substring(0, 6);
+export async function generateSlugFromFileName(fileName: string): Promise<string> {
+    // Web Crypto API를 사용하여 브라우저 호환 해시 생성
+    const encoder = new TextEncoder();
+    const data = encoder.encode(fileName);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+    return hashHex.substring(0, 6);
 }
 
 /**
@@ -88,10 +98,11 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     // Vite의 import.meta.glob을 사용하여 blog 폴더의 모든 .md 파일을 동적으로 import
     // Vite의 import.meta.glob은 프로젝트 루트 기준으로 작동
     // @ts-ignore - Vite의 import.meta.glob 타입
-    const modules = import.meta.glob("/blog/*.md", { as: "raw", eager: true }) as Record<
-        string,
-        string
-    >;
+    const modules = import.meta.glob("/blog/*.md", { 
+        query: "?raw",
+        import: "default",
+        eager: true 
+    }) as Record<string, string>;
 
     const posts: BlogPost[] = [];
 
@@ -110,7 +121,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
         // frontmatter 파싱
         const { data, content: markdownContent } = matter(content);
 
-        const slug = generateSlugFromFileName(fileName);
+        const slug = await generateSlugFromFileName(fileName);
         const title = data.title || fileName.replace(/\.md$/, "").replace(/_/g, " ");
         const createdAt = data.createdAt ? parseDate(data.createdAt) : new Date().toISOString();
         const summary = data.summary || data.excerpt || extractSummary(markdownContent);

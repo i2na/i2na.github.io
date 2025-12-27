@@ -1,6 +1,7 @@
 ---
 title: "Autodesk Viewer 초기화 및 설정 완벽 가이드"
 createdAt: "2025-01-20 14:00"
+summary: "웹 브라우저에서 3D 모델을 렌더링하는 Viewer 초기화 방법을 배우세요. Initializer 설정, GuiViewer3D 생성, Light Preset, 확장 기능 로딩까지 모든 과정을 상세히 다룹니다."
 ---
 
 Viewer는 웹 브라우저에서 3D 모델을 렌더링하는 컴포넌트입니다. `Autodesk.Viewing.Initializer()`로 서버 환경, API 주소, 인증 토큰을 설정하고, `GuiViewer3D` 인스턴스를 생성하여 HTML 요소에 연결합니다. `viewer.start()`는 3D 렌더링에 필요한 카메라, 씬, 도구 컨트롤러를 초기화하고 확장 기능을 불러옵니다. Light Preset은 실내, 실외, 스튜디오 등 16가지 조명 환경을 제공하며, 배경색, 모서리 라인, 바닥 그림자 같은 시각 요소를 설정할 수 있습니다. 측정, 단면, 워크스루 같은 확장 기능은 생성 시 자동으로 불러오거나 나중에 추가할 수 있습니다.
