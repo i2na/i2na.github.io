@@ -1,0 +1,130 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+
+.footer {
+    padding: $spacing-2xl 0;
+    padding-left: $spacing-md;
+    padding-right: $spacing-md;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #050505;
+
+    @include respond-to(md) {
+        padding: $spacing-3xl 0;
+        padding-left: $spacing-xl;
+        padding-right: $spacing-xl;
+    }
+}
+
+.container {
+    max-width: 80rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: $spacing-xl;
+
+    @include respond-to(md) {
+        flex-direction: row;
+        align-items: flex-end;
+        gap: $spacing-2xl;
+    }
+}
+
+.left {
+    h2 {
+        font-size: $font-size-2xl;
+        font-weight: 700;
+        margin-bottom: $spacing-md;
+        letter-spacing: -0.05em;
+        line-height: 1.2;
+
+        @include respond-to(md) {
+            font-size: $font-size-4xl;
+            margin-bottom: $spacing-xl;
+        }
+    }
+}
+
+.socialLinks {
+    display: flex;
+    gap: $spacing-sm;
+
+    @include respond-to(md) {
+        gap: $spacing-md;
+    }
+
+    a {
+        padding: $spacing-sm;
+        border-radius: $radius-full;
+        background: rgba(255, 255, 255, 0.05);
+        transition: all $transition-base;
+        color: $white;
+        text-decoration: none;
+
+        @include respond-to(md) {
+            padding: $spacing-md;
+        }
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        &.twitter:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: #1da1f2;
+        }
+
+        &.linkedin:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: #0a66c2;
+        }
+
+        &.mail:hover {
+            background: rgba(139, 92, 246, 0.2);
+            color: $brand-purple;
+        }
+
+        svg {
+            width: 1.25rem;
+            height: 1.25rem;
+
+            @include respond-to(md) {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+    }
+}
+
+.right {
+    text-align: right;
+    width: 100%;
+
+    @include respond-to(md) {
+        width: auto;
+    }
+}
+
+.meta {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    font-family: $font-family-mono;
+    font-size: $font-size-xs;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: $spacing-md;
+
+    @include respond-to(md) {
+        font-size: $font-size-sm;
+        margin-bottom: $spacing-xl;
+        gap: $spacing-sm;
+    }
+}
+
+.tagline {
+    font-size: $font-size-xs;
+    color: rgba(255, 255, 255, 0.3);
+    max-width: 20rem;
+    margin-left: auto;
+}

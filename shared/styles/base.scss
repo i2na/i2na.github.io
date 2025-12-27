@@ -1,0 +1,49 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $brand-black;
+    color: $white;
+    font-family: $font-family-sans;
+    overflow-x: hidden;
+    word-break: keep-all;
+    @include custom-scrollbar();
+}
+
+.glass-panel {
+    @include glass-panel();
+}
+
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+::selection {
+    background-color: $brand-purple;
+    color: $white;
+}
+
+:focus-visible {
+    outline: 2px solid $brand-purple;
+    outline-offset: 2px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:visited,
+    &:active {
+        color: inherit;
+        text-decoration: none;
+    }
+}

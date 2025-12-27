@@ -6,16 +6,16 @@
 
 ## Tech Stack
 
--   Vite
--   React
--   TypeScript
--   Tailwind CSS
+- Vite
+- React
+- TypeScript
+- Tailwind CSS
 
 ## Key Features
 
--   Markdown 기반 블로그 포스팅
--   3D 인터랙티브 씬 (Spline)
--   AI 챗봇 위젯
+- Markdown 기반 블로그 포스팅
+- 3D 인터랙티브 씬 (Spline)
+- AI 챗봇 위젯
 
 ## Development
 

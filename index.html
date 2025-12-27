@@ -1,108 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Yena Lee</title>
-        <script src="https://cdn.tailwindcss.com"></script>
+        <title>Yena.Lee</title>
+        <meta name="description" content="About Yena..." />
+
         <link
             rel="stylesheet"
-            as="style"
-            crossorigin
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
         />
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            brand: {
-                                black: "#0a0a0a",
-                                dark: "#121212",
-                                gray: "#1e1e1e",
-                                purple: "#8B5CF6",
-                                green: "#10B981",
-                                orange: "#F59E0B",
-                                pink: "#EC4899",
-                            },
-                            fontFamily: {
-                                sans: ["Pretendard", "Inter", "sans-serif"],
-                                mono: ["Fira Code", "monospace"],
-                            },
-                        },
-                        animation: {
-                            float: "float 6s ease-in-out infinite",
-                            "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-                            "spin-slow": "spin 12s linear infinite",
-                            "loop-scroll": "loop-scroll 40s linear infinite",
-                        },
-                        keyframes: {
-                            float: {
-                                "0%, 100%": { transform: "translateY(0)" },
-                                "50%": { transform: "translateY(-20px)" },
-                            },
-                            "loop-scroll": {
-                                from: { transform: "translateX(0)" },
-                                to: { transform: "translateX(-100%)" },
-                            },
-                        },
-                    },
-                },
-            };
-        </script>
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap"
             rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap"
         />
-        <style>
-            body {
-                background-color: #0a0a0a;
-                color: #ffffff;
-                font-family: "Pretendard", "Inter", sans-serif;
-                overflow-x: hidden;
-                word-break: keep-all;
-            }
-            .glass-panel {
-                background: rgba(30, 30, 30, 0.4);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            .text-gradient {
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            /* Custom Scrollbar */
-            ::-webkit-scrollbar {
-                width: 8px;
-            }
-            ::-webkit-scrollbar-track {
-                background: #0a0a0a;
-            }
-            ::-webkit-scrollbar-thumb {
-                background: #333;
-                border-radius: 4px;
-            }
-            ::-webkit-scrollbar-thumb:hover {
-                background: #555;
-            }
-        </style>
-        <script type="importmap">
-            {
-                "imports": {
-                    "react": "https://esm.sh/react@^19.2.3",
-                    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-                    "react/": "https://esm.sh/react@^19.2.3/",
-                    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
-                    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-                    "framer-motion": "https://esm.sh/framer-motion@^11.0.3"
-                }
-            }
-        </script>
     </head>
     <body>
         <div id="root"></div>
-        <script type="module" src="/index.tsx"></script>
+        <script type="module" src="/app/index.tsx"></script>
     </body>
 </html>

@@ -1,0 +1,84 @@
+@use "@/shared/styles/variables" as *;
+@use "@/shared/styles/mixins" as *;
+
+.techStackSection {
+    padding: $spacing-2xl 0;
+    background: $brand-black;
+    cursor: default;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    @include respond-to(md) {
+        padding: $spacing-3xl 0;
+    }
+
+    &:hover {
+        .label {
+            color: $white;
+        }
+
+        .scrollContainer {
+            animation-play-state: running;
+        }
+    }
+}
+
+.label {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacing-xl;
+    font-family: $font-family-mono;
+    color: $brand-orange;
+    transition: color $transition-base;
+    letter-spacing: 0.1em;
+    font-size: $font-size-xs;
+
+    @include respond-to(md) {
+        margin-bottom: $spacing-2xl;
+        font-size: $font-size-sm;
+    }
+}
+
+.scrollWrapper {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    user-select: none;
+}
+
+.scrollContainer {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: $spacing-xl;
+    padding: $spacing-sm $spacing-xl $spacing-sm 0;
+    animation: loop-scroll 40s linear infinite;
+    animation-play-state: paused;
+
+    @include respond-to(md) {
+        gap: $spacing-2xl;
+        padding: $spacing-md $spacing-2xl $spacing-md 0;
+    }
+}
+
+.techItem {
+    font-size: $font-size-2xl;
+    font-weight: 700;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all $transition-slower;
+    cursor: default;
+
+    @include respond-to(md) {
+        font-size: 5rem;
+    }
+
+    &:hover {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
